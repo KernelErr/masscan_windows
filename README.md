@@ -17,6 +17,10 @@ operating system to firewall the ports that masscan uses.
 This tool is free, but consider funding it here:
 1MASSCANaHUiyTtR3bJ2sLGuMw5kDBaj4T
 
+# Modified by Kevin Li
+I make it can and only can run on Windows with MinGW. After fixed all bugs, you can really just type `make`.
+
+希望中国的小伙伴们能够关注一下我们的公众号：BufBuzz，谢谢。
 
 # Building
 
