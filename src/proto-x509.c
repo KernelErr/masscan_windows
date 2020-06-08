@@ -574,13 +574,14 @@ x509_decode(struct CertDecode *x,
         /*
          * Jump to the current current state
          */
+        int tempstate;
         switch (state) {
         case ENC_TAG:
             if (px[i] != 0x03) {
                 state = ERROR;
                 continue;
             }
-            int tempstate = state; tempstate++; state = tempstate; 
+            tempstate = state; tempstate++; state = tempstate; 
             break;
         case ISSUERNAME_TAG:
             if (px[i] != 0x13 && px[i] != 0x0c) {
@@ -939,10 +940,11 @@ x509_decode(struct CertDecode *x,
 
         case VNBEFORE_CONTENTS:
         case VNAFTER_CONTENTS:
+            int tempstate;
             switch (x->u.timestamp.state) {
             case 0:
                 x->u.timestamp.year = (px[i] - '0') * 10;
-                int tempstate = x->u.timestamp.state;
+                tempstate = x->u.timestamp.state;
                 tempstate ++;
                 x->u.timestamp.state = tempstate;
                 break;
